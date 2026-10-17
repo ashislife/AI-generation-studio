@@ -298,11 +298,11 @@ with st.sidebar:
     is_video = mode == "Video"
 
     if is_video:
-        steps = st.slider("Inference steps", 1, 12, 4)
-        guidance = st.slider("Guidance scale", 0.5, 5.0, 1.5, 0.5)
-        frames = st.slider("Frames", 4, 16, 8, 4)
-        size = st.selectbox("Resolution", [192, 256, 384, 512], index=1)
-        st.caption("Short clips · AnimateLCM")
+        steps = st.slider("Inference steps", 4, 20, 10)
+        guidance = st.slider("Guidance scale", 1.0, 10.0, 5.0, 0.5)
+        frames = st.selectbox("Frames", [9, 17, 25, 33, 49], index=4)
+        size = st.selectbox("Resolution", [256, 384, 480, 512], index=2)
+        st.caption("Text-to-video · Wan 2.1")
     else:
         steps = st.slider("Inference steps", 10, 30, 20, 5)
         guidance = st.slider("Guidance scale", 5.0, 10.0, 7.5, 0.5)
@@ -338,7 +338,6 @@ with st.sidebar:
         f'<div class="status">Backend API<br>{API}</div>',
         unsafe_allow_html=True,
     )
-
 
 # Compact hero
 st.markdown("""
